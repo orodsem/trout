@@ -1,4 +1,4 @@
-Symfony Standard Edition
+Trout REST API Test
 ========================
 
 Welcome to the Symfony Standard Edition - a fully-functional Symfony2

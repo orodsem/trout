@@ -78,3 +78,15 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+#
+sensio_framework_extra:
+    router:      { annotations: true }
+    view:        { annotations: false }
+
+# FOS REST Bundle config
+fos_rest:
+    format_listener:
+        prefer_extension: false
+    view:
+        view_response_listener: true
