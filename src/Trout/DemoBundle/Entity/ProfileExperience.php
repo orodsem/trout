@@ -5,20 +5,13 @@ namespace Trout\DemoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ProfileLanguage
+ * ProfileExperience
  *
- * @ORM\Table(name="trout_profile_language")
+ * @ORM\Table(name="trout_profile_experience")
  * @ORM\Entity
  */
-class ProfileLanguage
+class ProfileExperience
 {
-    const NO_PRACTICAL =  0;
-    const ELEMENTARY =  1;
-    const LIMITED_WORKING =  2;
-    const MIN_PROFESSIONAL =  3;
-    const FULL_PROFESSIONAL =  4;
-    const NATIVE =  5;
-
     /**
      * @var integer
      *
@@ -31,16 +24,9 @@ class ProfileLanguage
     /**
      * @var string
      *
-     * @ORM\Column(name="language_code", type="string", length=30, nullable=true)
+     * @ORM\Column(name="experience", type="string", length=255, nullable=false)
      */
-    private $languageCode;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="proficiency", type="string", length=255)
-     */
-    private $proficiency;
+    private $experience;
 
     /**
      * @var Profile
@@ -63,33 +49,17 @@ class ProfileLanguage
     /**
      * @return string
      */
-    public function getLanguageCode()
+    public function getExperience()
     {
-        return $this->languageCode;
+        return $this->experience;
     }
 
     /**
-     * @param string $languageCode
+     * @param string $experience
      */
-    public function setLanguageCode($languageCode)
+    public function setExperience($experience)
     {
-        $this->languageCode = $languageCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getProficiency()
-    {
-        return $this->proficiency;
-    }
-
-    /**
-     * @param string $proficiency
-     */
-    public function setProficiency($proficiency)
-    {
-        $this->proficiency = $proficiency;
+        $this->experience = $experience;
     }
 
     /**

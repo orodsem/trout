@@ -45,14 +45,6 @@ class Profile
     private $profilePhoto;
 
     /**
-     * Current position of this profile
-     *
-     * @ORM\ManyToOne(targetEntity="Position", inversedBy="profiles", cascade={"persist"})
-     * @ORM\JoinColumn(name="position_id", referencedColumnName="id")
-     */
-    private $position;
-
-    /**
      * @ORM\ManyToMany(targetEntity="JobOffer", mappedBy="profiles")
      */
     private $jobOffers;
@@ -62,10 +54,16 @@ class Profile
      */
     protected $languages;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ProfileExperience", mappedBy="profile", cascade={"persist"})
+     */
+    protected $experiences;
+
     public function __construct()
     {
         $this->jobOffers = new ArrayCollection();
         $this->languages = new ArrayCollection();
+        $this->experiences = new ArrayCollection();
     }
 
     /**
@@ -127,22 +125,6 @@ class Profile
     }
 
     /**
-     * @return Position
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
-    /**
-     * @param Position $position
-     */
-    public function setPosition(Position $position)
-    {
-        $this->position = $position;
-    }
-
-    /**
      * @return ProfileLanguage[]
      */
     public function getLanguages()
@@ -166,6 +148,32 @@ class Profile
     public function addLanguage(ProfileLanguage $language)
     {
         $this->languages->add($language);
+    }
+
+    /**
+     * @return ProfileExperience[]
+     */
+    public function getExperiences()
+    {
+        return $this->experiences;
+    }
+
+    /**
+     * @param ProfileExperience[] $experiences
+     */
+    public function setExperiences($experiences)
+    {
+        foreach ($experiences as $experience) {
+            $this->addExperience($experience);
+        }
+    }
+
+    /**
+     * @param ProfileExperience $experience
+     */
+    public function addExperience(ProfileExperience $experience)
+    {
+        $this->experiences->add($experience);
     }
 
     /**

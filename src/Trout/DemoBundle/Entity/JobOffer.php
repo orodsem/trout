@@ -34,23 +34,23 @@ class JobOffer
     private $company;
 
     /**
-     * @var int
+     * @var float
      *
-     * @ORM\Column(name="salary_min", type="integer")
+     * @ORM\Column(name="salary_min", type="float")
      */
     private $salaryMinimum;
 
     /**
-     * @var int
+     * @var float
      *
-     * @ORM\Column(name="salary_max", type="integer")
+     * @ORM\Column(name="salary_max", type="float")
      */
     private $salaryMaximum;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="expiry_date", type="integer")
+     * @ORM\Column(name="expiry_date", type="integer", nullable=true)
      */
     private $expiryDate;
 
@@ -100,7 +100,7 @@ class JobOffer
     }
 
     /**
-     * @return int
+     * @return float
      */
     public function getSalaryMinimum()
     {
@@ -108,7 +108,7 @@ class JobOffer
     }
 
     /**
-     * @param int $salaryMinimum
+     * @param float $salaryMinimum
      */
     public function setSalaryMinimum($salaryMinimum)
     {
@@ -116,7 +116,7 @@ class JobOffer
     }
 
     /**
-     * @return int
+     * @return float
      */
     public function getSalaryMaximum()
     {
@@ -124,7 +124,7 @@ class JobOffer
     }
 
     /**
-     * @param int $salaryMaximum
+     * @param float $salaryMaximum
      */
     public function setSalaryMaximum($salaryMaximum)
     {
