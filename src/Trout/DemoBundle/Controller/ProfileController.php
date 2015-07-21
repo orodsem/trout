@@ -52,6 +52,10 @@ class ProfileController extends Controller
         return $this->processForm($profile);
     }
 
+    /**
+     * @param Profile $profile
+     * @return JsonResponse
+     */
     public function uploadImageAction(Profile $profile)
     {
         $request = $this->getRequest();

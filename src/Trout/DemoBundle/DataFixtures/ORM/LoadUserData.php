@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Trout\DemoBundle\Entity\JobOffer;
-use Trout\DemoBundle\Entity\Position;
 use Trout\DemoBundle\Entity\Profile;
 use Trout\DemoBundle\Entity\ProfileExperience;
 use Trout\DemoBundle\Entity\ProfileLanguage;
@@ -49,9 +48,8 @@ class LoadUserData implements FixtureInterface
     {
         // adding Alice profile
         $aliceProfile = new Profile();
-        $aliceProfile->setFirstName('alice');
+        $aliceProfile->setFirstName('Alice');
         $aliceProfile->setLastName('Smith');
-        $aliceProfile->setProfilePhoto('/Users/orodsem/Downloads/image_04.jpg');
 
         $manager->persist($aliceProfile);
         $manager->flush();
@@ -80,9 +78,8 @@ class LoadUserData implements FixtureInterface
 
         // adding Bob profile
         $bobProfile = new Profile();
-        $bobProfile->setFirstName('bob');
+        $bobProfile->setFirstName('Bob');
         $bobProfile->setLastName('Sem');
-        $bobProfile->setProfilePhoto('/Users/orodsem/Downloads/image_04.jpg');
 
         $manager->persist($bobProfile);
         $manager->flush();
