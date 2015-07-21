@@ -1,9 +1,0 @@
-Trout\DemoBundle\Entity\User:
-    getters:
-        username:
-            - NotBlank:
-        email:
-            - NotBlank:
-            - Email:
-        password:
-            - NotBlank:
