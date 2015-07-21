@@ -22,6 +22,15 @@ This project contains the following technologies:
 
 All libraries and bundles included in the Symfony Standard Edition are released under the MIT or BSD license.
 
+How to Start
+-----------
+
+1. Check out the project from "https://github.com/orodsem/trout.git"
+2. Go to where you locale Trout project (e.g. ~/Sites/trout/)
+3. Run comopser update to get the latest bundles and dependencies
+4. sh bash/init.sh To create schema (called 'trout') and insert some test data, coming with  running all Behat test scenarios.
+ NOTE: You'll be asked "Careful, database will be purged. Do you want to continue Y/N ?", press Y
+
 Enjoy!
 
 [1]:  http://symfony.com/doc/2.8/book/doctrine.html
