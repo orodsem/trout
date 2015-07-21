@@ -116,7 +116,7 @@ class JobOffer
      */
     public function setSalaryMinimum($salaryMinimum)
     {
-        $this->salaryMinimum = $salaryMinimum;
+        $this->salaryMinimum = floatval($salaryMinimum);
     }
 
     /**
@@ -132,7 +132,7 @@ class JobOffer
      */
     public function setSalaryMaximum($salaryMaximum)
     {
-        $this->salaryMaximum = $salaryMaximum;
+        $this->salaryMaximum = floatval($salaryMaximum);
     }
 
     /**
@@ -145,13 +145,11 @@ class JobOffer
 
     /**
      * set expiry date
-     *
      */
     private function setExpiryDate()
     {
-        $expiryDate = strtotime("+15 day");
-        $foo = time() + (15 * 24 * 60 * 60);
-
+        // expiry date, would be in 15 days (end of the day) from now
+        $expiryDate = strtotime("+15 day 23:59:59");
         $this->expiryDate = $expiryDate;
     }
 
