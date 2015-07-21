@@ -72,3 +72,39 @@ trout_demo_profile_upload:
     defaults: { _controller: TroutDemoBundle:Profile:uploadImage, _format: json}
     requirements:
         _method: POST
+
+#        Job Offer
+trout_demo_job_offer_all_json:
+    pattern:  /jobOffer/all
+    defaults: { _controller: TroutDemoBundle:JobOffer:all, _format: json }
+    requirements: { _format: (xml|json), _method: GET }
+
+trout_demo_job_offer_get:
+    pattern:  /jobOffer/get/{id}
+    defaults: { _controller: TroutDemoBundle:JobOffer:get, _format: json}
+    requirements:
+        _method: GET
+
+trout_demo_job_offer_add:
+    pattern:  /jobOffer/add
+    defaults: { _controller: TroutDemoBundle:JobOffer:add, _format: json}
+    requirements:
+        _method: POST
+
+trout_demo_job_offer_edit:
+    pattern:  /jobOffers/{id}
+    defaults: { _controller: TroutDemoBundle:JobOffer:edit, _format: json }
+    requirements:
+        _method: PUT
+
+trout_demo_job_offer_publish:
+    pattern:  /jobOffer/publish/{id}
+    defaults: { _controller: TroutDemoBundle:JobOffer:publish, _format: json}
+    requirements:
+        _method: GET
+
+trout_demo_job_offer_close:
+    pattern:  /jobOffer/close/{id}
+    defaults: { _controller: TroutDemoBundle:JobOffer:close, _format: json}
+    requirements:
+        _method: GET

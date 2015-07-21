@@ -4,14 +4,13 @@ namespace Trout\DemoBundle\Controller;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Trout\DemoBundle\Entity\File;
 use Trout\DemoBundle\Entity\Profile;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Trout\DemoBundle\Form\ProfileType;
 
-class ProfileController extends Controller
+class ProfileController extends BaseController
 {
     /**
      * @return array
@@ -110,14 +109,5 @@ class ProfileController extends Controller
 
         $form = View::create($form, 400);
         return $form;
-    }
-
-    /**
-     * @param $entity
-     */
-    private function save($entity)
-    {
-        $this->getDoctrine()->getManager()->persist($entity);
-        $this->getDoctrine()->getManager()->flush();
     }
 }

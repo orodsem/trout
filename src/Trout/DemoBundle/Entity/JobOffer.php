@@ -4,9 +4,10 @@ namespace Trout\DemoBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Profile
+ * JobOffer
  *
  * @ORM\Table(name="trout_job_offer")
  * @ORM\Entity
@@ -28,6 +29,7 @@ class JobOffer
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="company", type="string", length=255)
      */
@@ -35,6 +37,7 @@ class JobOffer
 
     /**
      * @var float
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="salary_min", type="float")
      */
@@ -42,6 +45,7 @@ class JobOffer
 
     /**
      * @var float
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="salary_max", type="float")
      */
@@ -140,10 +144,14 @@ class JobOffer
     }
 
     /**
-     * @param int $expiryDate
+     * set expiry date
+     *
      */
-    public function setExpiryDate($expiryDate)
+    private function setExpiryDate()
     {
+        $expiryDate = strtotime("+15 day");
+        $foo = time() + (15 * 24 * 60 * 60);
+
         $this->expiryDate = $expiryDate;
     }
 
@@ -161,6 +169,11 @@ class JobOffer
     public function setStatus($status)
     {
         $this->status = $status;
+
+        if ($status === self::STATUS_PUBLISHED) {
+            // if job offer published, then set expiry date
+            $this->setExpiryDate();
+        }
     }
 
     /**

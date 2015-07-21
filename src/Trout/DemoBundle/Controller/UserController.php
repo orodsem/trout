@@ -36,16 +36,28 @@ class UserController extends BaseController
         return array('user' => $user);
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function newAction(Request $request)
     {
         return $this->processForm(new User());
     }
 
+    /**
+     * @param User $user
+     * @return JsonResponse
+     */
     public function editAction(User $user)
     {
         return $this->processForm($user);
     }
 
+    /**
+     * @param User $user
+     * @return JsonResponse
+     */
     private function processForm(User $user)
     {
         $statusCode = $user->isNew() ? 201 : 204;
@@ -75,14 +87,5 @@ class UserController extends BaseController
 
         $form = View::create($form, 400);
         return $form;
-    }
-
-    /**
-     * @param $entity
-     */
-    private function save($entity)
-    {
-        $this->getDoctrine()->getManager()->persist($entity);
-        $this->getDoctrine()->getManager()->flush();
     }
 }
