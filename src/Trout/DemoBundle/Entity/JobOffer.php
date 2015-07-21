@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class JobOffer
 {
-    const STATUS_DRFT = 0;
+    const STATUS_DRAFT = 0;
     const STATUS_PUBLISHED = 1;
     const STATUS_CLOSED = 2;
 
@@ -73,7 +73,7 @@ class JobOffer
 
     public function __construct()
     {
-        $this->status = self::STATUS_DRFT;
+        $this->status = self::STATUS_DRAFT;
         $this->profiles = new ArrayCollection();
     }
 
