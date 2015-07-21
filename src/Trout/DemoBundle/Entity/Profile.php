@@ -4,6 +4,8 @@ namespace Trout\DemoBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Profile
@@ -24,6 +26,7 @@ class Profile
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="first_name", type="string", length=255)
      */
@@ -31,17 +34,16 @@ class Profile
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="last_name", type="string", length=255)
      */
     private $lastName;
 
-
     /**
-     * @var string
-     *
-     * @ORM\Column(name="profile_photo", type="string", nullable=true)
-     */
+     * @ORM\OneToOne(targetEntity="File")
+     * @ORM\JoinColumn(name="profile_photo_id", referencedColumnName="id", nullable=true)
+     **/
     private $profilePhoto;
 
     /**
@@ -109,7 +111,7 @@ class Profile
     }
 
     /**
-     * @return string
+     * @return File
      */
     public function getProfilePhoto()
     {
@@ -117,9 +119,9 @@ class Profile
     }
 
     /**
-     * @param string $profilePhoto
+     * @param File $profilePhoto
      */
-    public function setProfilePhoto($profilePhoto)
+    public function setProfilePhoto(File $profilePhoto)
     {
         $this->profilePhoto = $profilePhoto;
     }

@@ -43,14 +43,6 @@ class ProfileLanguage
     private $proficiency;
 
     /**
-     * @var Profile
-     *
-     * @ORM\ManyToOne(targetEntity="Profile", inversedBy="languages", cascade={"persist"})
-     * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
-     */
-    private $profile;
-
-    /**
      * Get id
      *
      * @return integer

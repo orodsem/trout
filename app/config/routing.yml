@@ -9,7 +9,66 @@ trout_demo:
     type:     annotation
     prefix:   /
 
-users:
-    type: rest
-    resource: Trout\DemoBundle\Controller\UserController
+#users:
+#    type: rest
+#    resource: Trout\DemoBundle\Controller\UserController
+#
+#acme_demo_user_all:
+#    pattern:  /users
+#    defaults: { _controller: AcmeDemoBundle:User:all, _format: ~ }
+#    requirements:
+#        _method: POST
 
+trout_demo_user_all_json:
+    pattern:  /users
+    defaults: { _controller: TroutDemoBundle:User:all, _format: json }
+    requirements: { _format: (xml|json), _method: GET }
+
+trout_demo_user_get:
+    pattern:  /users/{id}
+    defaults: { _controller: TroutDemoBundle:User:get, _format: json}
+    requirements:
+        _method: GET
+
+trout_demo_user_add:
+    pattern:  /new
+    defaults: { _controller: TroutDemoBundle:User:new, _format: json}
+    requirements:
+        _method: POST
+
+trout_demo_user_edit:
+    pattern:  /users/{id}
+    defaults: { _controller: TroutDemoBundle:User:edit, _format: json }
+    requirements:
+        _method: PUT
+
+
+#        Profile
+trout_demo_profile_all_json:
+    pattern:  /profile/all
+    defaults: { _controller: TroutDemoBundle:Profile:all, _format: json }
+    requirements: { _format: (xml|json), _method: GET }
+
+trout_demo_profile_get:
+    pattern:  /profile/get/{id}
+    defaults: { _controller: TroutDemoBundle:Profile:get, _format: json}
+    requirements:
+        _method: GET
+
+trout_demo_profile_add:
+    pattern:  /profile/add
+    defaults: { _controller: TroutDemoBundle:Profile:add, _format: json}
+    requirements:
+        _method: POST
+
+trout_demo_profile_edit:
+    pattern:  /profiles/{id}
+    defaults: { _controller: TroutDemoBundle:Profile:edit, _format: json }
+    requirements:
+        _method: PUT
+
+trout_demo_profile_upload:
+    pattern:  /profile/upload/{id}
+    defaults: { _controller: TroutDemoBundle:Profile:uploadImage, _format: json}
+    requirements:
+        _method: POST
