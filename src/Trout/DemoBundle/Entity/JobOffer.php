@@ -185,7 +185,7 @@ class JobOffer
     }
 
     /**
-     * @param mixed $profiles
+     * @param array $profiles
      */
     public function setProfiles($profiles)
     {
@@ -193,6 +193,16 @@ class JobOffer
             if ($profile instanceof Profile) {
                 $this->profiles->add($profile);
             }
+        }
+    }
+
+    /**
+     * @param Profile $profile
+     */
+    public function addProfile(Profile $profile)
+    {
+        if (!$this->profiles->contains($profile)) {
+            $this->profiles->add($profile);
         }
     }
 }

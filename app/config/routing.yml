@@ -108,3 +108,10 @@ trout_demo_job_offer_close:
     defaults: { _controller: TroutDemoBundle:JobOffer:close, _format: json}
     requirements:
         _method: GET
+
+trout_demo_job_offer_offer:
+    pattern:  /jobOffer/offer/{id}/{profileId}
+    defaults: { _controller: TroutDemoBundle:JobOffer:offer, _format: json}
+    requirements:
+        _method: GET
+

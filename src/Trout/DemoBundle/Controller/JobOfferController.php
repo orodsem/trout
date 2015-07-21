@@ -8,6 +8,7 @@ use Trout\DemoBundle\Entity\File;
 use Trout\DemoBundle\Entity\JobOffer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Trout\DemoBundle\Entity\Profile;
 use Trout\DemoBundle\Form\JobOfferType;
 
 class JobOfferController extends BaseController
@@ -92,23 +93,46 @@ class JobOfferController extends BaseController
      * Publish the job offer.
      *
      * @param JobOffer $jobOffer
+     * @return JsonResponse
      */
     public function publishAction(JobOffer $jobOffer)
     {
         $jobOffer->setStatus(JobOffer::STATUS_PUBLISHED);
-
         $this->save($jobOffer);
+
+        $response = new JsonResponse();
+        return $response;
     }
 
     /**
      * Close the job offer.
      *
      * @param JobOffer $jobOffer
+     * @return JsonResponse
      */
     public function closeAction(JobOffer $jobOffer)
     {
         $jobOffer->setStatus(JobOffer::STATUS_CLOSED);
-
         $this->save($jobOffer);
+
+        $response = new JsonResponse();
+        return $response;
+    }
+
+    /**
+     * @param JobOffer $jobOffer
+     * @param Profile $profile
+     * @return JsonResponse
+     *
+     * @ParamConverter("jobOffer", class="TroutDemoBundle:JobOffer")
+     * @ParamConverter("profile", class="TroutDemoBundle:Profile", options={"id" = "profileId"})
+     */
+    public function offerAction(JobOffer $jobOffer, Profile $profile)
+    {
+        $jobOffer->addProfile($profile);
+        $this->save($jobOffer);
+
+        $response = new JsonResponse();
+        return $response;
     }
 }
