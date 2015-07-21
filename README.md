@@ -1,24 +1,18 @@
 Trout REST API Test
 ========================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new applications.
-
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+This is a test for Trout Co.
 
 What's inside?
 --------------
 
-The Symfony Standard Edition is configured with the following defaults:
+This project contains the following technologies:
 
-  * An AppBundle you can use to start coding;
-
-  * Twig as the only configured template engine;
+  * TroutBundle contains all the logic
 
   * Doctrine ORM/DBAL;
 
-  * Swiftmailer;
+  * [**FOSRestBundle**][1]
 
   * Annotations enabled for everything.
 
@@ -61,7 +55,7 @@ released under the MIT or BSD license.
 
 Enjoy!
 
-[1]:  http://symfony.com/doc/2.8/book/installation.html
+[1]:  https://github.com/FriendsOfSymfony/FOSRestBundle
 [6]:  http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
 [7]:  http://symfony.com/doc/2.8/book/doctrine.html
 [8]:  http://symfony.com/doc/2.8/book/templating.html
