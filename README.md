@@ -48,22 +48,29 @@ A few small things to be considered:
 
 End Points
 ----------
-1. Display A JobOffer by id
+1. Display a JobOffer by id
 
 ```
 curl -v -H "Accept: application/json" -H "Content-type: application/json" http://trout.dev.com.au/jobOffer/get/1
 ```
 
-OR by httpie
+OR use httpie for much nicer display
 
 ```
 http http://trout.dev.com.au/jobOffer/get/9 Accept:application/json
 ```
 
-2. Display A JobOffer by id
+2. Add a JobOffer
+
+**Valid**
 
 ```
-curl -v -H "Accept: application/json" -H "Content-type: application/json" http://trout.dev.com.au/jobOffer/get/1
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobOffer": {"company": "company","salaryMinimum": "20000","salaryMaximum": "30000"}}' http://trout.dev.com.au/jobOffer/add
+```
+
+**Invalid** - Try to add expiry date
+```
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobOffer": {"company": "company","salaryMinimum": "20000","salaryMaximum": "30000", "expiryDate":"12"}}' http://trout.dev.com.au/jobOffer/add -b "XDEBUG_SESSION=1" > response.json
 ```
 
 
