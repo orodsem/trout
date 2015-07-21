@@ -41,8 +41,31 @@ A few small things to be considered:
 
 1. Make sure app/cache directory has read/write permission
 2. $ sh bash/init.sh regenerates the whole database to reuse consistent data via Behat including insert/update and delete
-3. Behat scenarios can be found at ~/Sites/trout/features/trout.feature
-4. Entity validation done by Annotation in each entity.
+3. DB configuration details can be changed at ~/Sites/trout/app/config/parameters.yml
+4. Behat scenarios can be found at ~/Sites/trout/features/trout.feature
+5. Entity validation done by Annotation in each entity.
+
+
+End Points
+----------
+1. Display A JobOffer by id
+
+```
+curl -v -H "Accept: application/json" -H "Content-type: application/json" http://trout.dev.com.au/jobOffer/get/1
+```
+
+OR by httpie
+
+```
+http http://trout.dev.com.au/jobOffer/get/9 Accept:application/json
+```
+
+2. Display A JobOffer by id
+
+```
+curl -v -H "Accept: application/json" -H "Content-type: application/json" http://trout.dev.com.au/jobOffer/get/1
+```
+
 
 [1]:  http://symfony.com/doc/2.8/book/doctrine.html
 [2]:  https://github.com/FriendsOfSymfony/FOSRestBundle
