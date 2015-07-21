@@ -42,7 +42,7 @@ class Profile
 
     /**
      * @ORM\OneToOne(targetEntity="File")
-     * @ORM\JoinColumn(name="profile_photo_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="profile_photo_id", referencedColumnName="id", nullable=true, onDelete="CASCADE")
      **/
     private $profilePhoto;
 
@@ -52,12 +52,12 @@ class Profile
     private $jobOffers;
 
     /**
-     * @ORM\OneToMany(targetEntity="ProfileLanguage", mappedBy="profile", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ProfileLanguage", mappedBy="profile")
      */
     protected $languages;
 
     /**
-     * @ORM\OneToMany(targetEntity="ProfileExperience", mappedBy="profile", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ProfileExperience", mappedBy="profile")
      */
     protected $experiences;
 

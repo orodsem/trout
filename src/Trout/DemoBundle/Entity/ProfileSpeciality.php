@@ -31,8 +31,8 @@ class ProfileSpeciality
     /**
      * @var Profile
      *
-     * @ORM\ManyToOne(targetEntity="Profile", inversedBy="languages", cascade={"persist"})
-     * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Profile", inversedBy="languages", cascade={"remove"})
+     * @ORM\JoinColumn(name="profile_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $profile;
 

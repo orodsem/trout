@@ -22,19 +22,6 @@ class LoadUserData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $alice = new User();
-        $alice->setUsername('alice');
-        $alice->setPassword('alice123');
-        $alice->setEmail('alice@email.com');
-
-        $bob = new User();
-        $bob->setUsername('bob');
-        $bob->setPassword('bob123');
-        $bob->setEmail('bob@email.com');
-
-        $manager->persist($alice);
-        $manager->persist($bob);
-
         // trout data
         $this->loadTrout($manager);
 

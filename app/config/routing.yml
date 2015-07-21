@@ -73,6 +73,12 @@ trout_demo_profile_upload:
     requirements:
         _method: POST
 
+trout_demo_profile_delete:
+    pattern:  /profile/delete/{id}
+    defaults: { _controller: TroutDemoBundle:Profile:delete, _format: json}
+    requirements:
+        _method: DELETE
+
 #        Job Offer
 trout_demo_job_offer_all_json:
     pattern:  /jobOffer/all
@@ -114,4 +120,11 @@ trout_demo_job_offer_offer:
     defaults: { _controller: TroutDemoBundle:JobOffer:offer, _format: json}
     requirements:
         _method: GET
+
+trout_demo_job_offer_delete:
+    pattern:  /jobOffer/delete/{id}
+    defaults: { _controller: TroutDemoBundle:JobOffer:delete, _format: json}
+    requirements:
+        _method: DELETE
+
 

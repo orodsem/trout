@@ -58,9 +58,9 @@ class ProfileController extends BaseController
     public function uploadImageAction(Profile $profile)
     {
         $request = $this->getRequest();
+        $response = new JsonResponse();
 
         if (!$request->files->has('profilePhoto')) {
-            $response = new JsonResponse();
             $response->setStatusCode(400);
             return $response;
         }
@@ -72,6 +72,22 @@ class ProfileController extends BaseController
 
         $profile->setProfilePhoto($file);
         $this->save($profile);
+
+        $response->setStatusCode(200);
+        return $response;
+    }
+
+    /**
+     * @param Profile $profile
+     * @return JsonResponse
+     */
+    public function deleteAction(Profile $profile)
+    {
+        $this->delete($profile);
+
+        $response = new JsonResponse();
+        $response->setStatusCode(204);
+        return $response;
     }
 
     /**

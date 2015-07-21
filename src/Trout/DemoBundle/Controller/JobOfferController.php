@@ -135,4 +135,17 @@ class JobOfferController extends BaseController
         $response = new JsonResponse();
         return $response;
     }
+
+    /**
+     * @param JobOffer $jobOffer
+     * @return JsonResponse
+     */
+    public function deleteAction(JobOffer $jobOffer)
+    {
+        $this->delete($jobOffer);
+
+        $response = new JsonResponse();
+        $response->setStatusCode(204);
+        return $response;
+    }
 }
