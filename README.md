@@ -48,10 +48,11 @@ A few small things to be considered:
 
 End Points
 ----------
-## 1. Display a JobOffer by id
+## 1. Display a JobOffer/Profile by id
 
 ```
 curl -v -H "Accept: application/json" -H "Content-type: application/json" http://trout.dev.com.au/jobOffer/get/1
+curl -v -H "Accept: application/json" -H "Content-type: application/json" http://trout.dev.com.au/profile/get/2
 ```
 
 Or use httpie for much nicer display
@@ -85,3 +86,12 @@ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X PUT
 [2]:  https://github.com/FriendsOfSymfony/FOSRestBundle
 [3]:  https://packagist.org/packages/doctrine/doctrine-fixtures-bundle
 [4]:  https://github.com/deminy/behat-rest-testing
+
+
+## 4. upload a profile photo
+
+```
+curl -F "profilePhoto=@/<path>/<to>/<yourPhoto>/photo.png" http://trout.dev.com.au/profile/upload/2
+```
+
+TODO: Validate the image size and format.
