@@ -60,19 +60,26 @@ Or use httpie for much nicer display
 http http://trout.dev.com.au/jobOffer/get/9 Accept:application/json
 ```
 
-## 2. Add a JobOffer
+## 2. Add a JobOffer/Profile
 
 **Valid**
 
 ```
 curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobOffer": {"company": "company","salaryMinimum": "20000","salaryMaximum": "30000"}}' http://trout.dev.com.au/jobOffer/add
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"profile": {"firstName": "new_first_name","lastName": "new_last_name"}}' http://trout.dev.com.au/profile/add
 ```
 
-**Invalid** - Try to add expiry date
+**Invalid** - Try to add expiry date to JobOffer
 ```
 curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobOffer": {"company": "company","salaryMinimum": "20000","salaryMaximum": "30000", "expiryDate":"12"}}' http://trout.dev.com.au/jobOffer/add -b "XDEBUG_SESSION=1" > response.json
 ```
 
+## 3. Edit a JobOffer/Profile
+
+```
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"jobOffer": {"company": "trout","salaryMinimum": "20000","salaryMaximum": "30000"}}' http://trout.dev.com.au/jobOffers/1
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"profile": {"firstName": "edited_first_name","lastName": "edited_last_name"}}' http://trout.dev.com.au/profiles/2
+```
 
 [1]:  http://symfony.com/doc/2.8/book/doctrine.html
 [2]:  https://github.com/FriendsOfSymfony/FOSRestBundle
