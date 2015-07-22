@@ -10,11 +10,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Trout\DemoBundle\Entity\Profile;
 use Trout\DemoBundle\Form\JobOfferType;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class JobOfferController extends BaseController
 {
     /**
-     * @return array
+     * @ApiDoc(
+     *  description="Returns all JobOffers"
+     * )
+     *
+     * @return JsonResponse
      * @Rest\View
      */
     public function allAction()
@@ -36,6 +41,32 @@ class JobOfferController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Create a new JobOffer",
+     *  input="TroutDemoBundle:JobOffer",
+     *  output="Symfony\Component\HttpFoundation\JsonResponse",
+     *  requirements={
+     *      {
+     *          "name"="company",
+     *          "dataType"="string",
+     *          "requirement"="",
+     *          "description"="Company offering an job offer"
+     *      },
+     *      {
+     *          "name"="salaryMinimum",
+     *          "dataType"="float",
+     *          "requirement"="",
+     *          "description"="Minimum salary"
+     *      },
+     *      {
+     *          "name"="salaryMaximum",
+     *          "dataType"="float",
+     *          "requirement"="",
+     *          "description"="Maximum salary"
+     *      }
+     *  }
+     * )
+     *
      * @return JsonResponse
      */
     public function addAction()

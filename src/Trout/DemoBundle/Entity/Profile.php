@@ -41,6 +41,15 @@ class Profile
     private $lastName;
 
     /**
+     * Current position
+     *
+     * @var string
+     *
+     * @ORM\Column(name="position", type="string", length=255, nullable=true)
+     */
+    private $position;
+
+    /**
      * @ORM\OneToOne(targetEntity="File")
      * @ORM\JoinColumn(name="profile_photo_id", referencedColumnName="id", nullable=true, onDelete="CASCADE")
      **/
@@ -196,5 +205,21 @@ class Profile
                 $this->jobOffers->add($jobOffer);
             }
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param string $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
     }
 }

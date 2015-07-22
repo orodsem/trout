@@ -9,11 +9,16 @@ use Trout\DemoBundle\Entity\Profile;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Trout\DemoBundle\Form\ProfileType;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class ProfileController extends BaseController
 {
     /**
-     * @return array
+     * @ApiDoc(
+     *  description="Returns all JobOffers"
+     * )
+     *
+     * @return JsonResponse
      * @Rest\View
      */
     public function allAction()
@@ -29,12 +34,39 @@ class ProfileController extends BaseController
      * @Rest\View
      * @ParamConverter("profile", class="TroutDemoBundle:Profile")
      */
+
     public function getAction(Profile $profile)
     {
         return array('profile' => $profile);
     }
 
     /**
+     * @ApiDoc(
+     *  description="Create a new profile",
+     *  input="TroutDemoBundle:Profile",
+     *  output="Symfony\Component\HttpFoundation\JsonResponse",
+     *  requirements={
+     *      {
+     *          "name"="firstName",
+     *          "dataType"="string",
+     *          "requirement"="",
+     *          "description"="First name it is also called given name or Christian name. It is the name your parents give you at birth."
+     *      },
+     *      {
+     *          "name"="lastName",
+     *          "dataType"="string",
+     *          "requirement"="",
+     *          "description"="A family name is typically a part of a person's personal name which, according to law or custom, is passed or given to children from one or both of their parents' family names"
+     *      },
+     *      {
+     *          "name"="position",
+     *          "dataType"="string",
+     *          "requirement"="",
+     *          "description"="The position currently occupied by a professional resource in the organisation he or she are employed by."
+     *      }
+     *  }
+     * )
+     *
      * @return JsonResponse
      */
     public function addAction()
@@ -43,6 +75,32 @@ class ProfileController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Edit a profile",
+     *  input="TroutDemoBundle:Profile",
+     *  output="Symfony\Component\HttpFoundation\JsonResponse",
+     *  requirements={
+     *      {
+     *          "name"="firstName",
+     *          "dataType"="string",
+     *          "requirement"="",
+     *          "description"="First name it is also called given name or Christian name. It is the name your parents give you at birth."
+     *      },
+     *      {
+     *          "name"="lastName",
+     *          "dataType"="string",
+     *          "requirement"="",
+     *          "description"="A family name is typically a part of a person's personal name which, according to law or custom, is passed or given to children from one or both of their parents' family names"
+     *      },
+     *      {
+     *          "name"="position",
+     *          "dataType"="string",
+     *          "requirement"="",
+     *          "description"="The position currently occupied by a professional resource in the organisation he or she are employed by."
+     *      }
+     *  }
+     * )
+     *
      * @param Profile $profile
      * @return JsonResponse
      */
@@ -52,6 +110,26 @@ class ProfileController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Edit a profile",
+     *  input="TroutDemoBundle:Profile",
+     *  output="Symfony\Component\HttpFoundation\JsonResponse",
+     *  requirements={
+     *      {
+     *          "name"="profilePhoto",
+     *          "dataType"="TroutDemoBundle:File",
+     *          "requirement"="",
+     *          "description"="a profile photo really demonstrates your talent, look and personality."
+     *      }
+     *  },
+     * statusCodes={
+     *         200="Returned when successfully uploaded",
+     *         404={
+     *           "Returned when the profile photo not set",
+     *         }
+     *     }
+     * )
+     *
      * @param Profile $profile
      * @return JsonResponse
      */
@@ -61,7 +139,7 @@ class ProfileController extends BaseController
         $response = new JsonResponse();
 
         if (!$request->files->has('profilePhoto')) {
-            $response->setStatusCode(400);
+            $response->setStatusCode(404);
             return $response;
         }
 
@@ -78,6 +156,15 @@ class ProfileController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *     statusCodes={
+     *         204="Returned when successfully deleted",
+     *         404={
+     *           "Returned when the profile is not found",
+     *         }
+     *     }
+     * )
+     *
      * @param Profile $profile
      * @return JsonResponse
      */

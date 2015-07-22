@@ -11,9 +11,8 @@ use Trout\DemoBundle\Entity\Profile;
 use Trout\DemoBundle\Entity\ProfileExperience;
 use Trout\DemoBundle\Entity\ProfileLanguage;
 use Trout\DemoBundle\Entity\Profilespeciality;
-use Trout\DemoBundle\Entity\User;
 
-class LoadUserData implements FixtureInterface
+class LoadTroutData implements FixtureInterface
 {
     /**
      * Load data fixtures with the passed EntityManager
@@ -23,20 +22,11 @@ class LoadUserData implements FixtureInterface
     public function load(ObjectManager $manager)
     {
         // trout data
-        $this->loadTrout($manager);
-
-        $manager->flush();
-    }
-
-    /**
-     * @param ObjectManager $manager
-     */
-    private function loadTrout(ObjectManager $manager)
-    {
         // adding Alice profile
         $aliceProfile = new Profile();
         $aliceProfile->setFirstName('Alice');
         $aliceProfile->setLastName('Smith');
+        $aliceProfile->setPosition('Web Developer');
 
         $manager->persist($aliceProfile);
         $manager->flush();
@@ -67,6 +57,7 @@ class LoadUserData implements FixtureInterface
         $bobProfile = new Profile();
         $bobProfile->setFirstName('Bob');
         $bobProfile->setLastName('Sem');
+        $bobProfile->setPosition('Account Manager');
 
         $manager->persist($bobProfile);
         $manager->flush();

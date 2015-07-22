@@ -19,7 +19,7 @@ Scenario: Publishing a Job Offer by id set expiry date to 15 days after the curr
     When I request "/jobOffer/get/2"
     Then the "expiry_date" property equals "expiryDate()"
 
-###    Profile
+#    Profile
 Scenario: Finding a Profile by id
     Given that I want to find a "Profile"
     When I request "/profile/get/1"
@@ -31,6 +31,7 @@ Scenario: Validating Profile entity attributes
     And the type of the "id" property is numeric
     And the type of the "first_name" property is string
     And the type of the "last_name" property is string
+    And the type of the "position" property is string
     And the type of the "job_offers" property is array
     And the type of the "languages" property is array
     And the type of the "experiences" property is array

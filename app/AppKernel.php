@@ -27,7 +27,8 @@ class AppKernel extends Kernel
             new Trout\DemoBundle\TroutDemoBundle(),
             new \JMS\SerializerBundle\JMSSerializerBundle(),
             new \FOS\RestBundle\FOSRestBundle(),
-            new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle()
+            new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

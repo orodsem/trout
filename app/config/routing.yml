@@ -3,51 +3,17 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-# Trout routes
-trout_demo:
-    resource: "@TroutDemoBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-#users:
-#    type: rest
-#    resource: Trout\DemoBundle\Controller\UserController
-#
-#acme_demo_user_all:
-#    pattern:  /users
-#    defaults: { _controller: AcmeDemoBundle:User:all, _format: ~ }
-#    requirements:
-#        _method: POST
-
-trout_demo_user_all_json:
-    pattern:  /users
-    defaults: { _controller: TroutDemoBundle:User:all, _format: json }
-    requirements: { _format: (xml|json), _method: GET }
-
-trout_demo_user_get:
-    pattern:  /users/{id}
-    defaults: { _controller: TroutDemoBundle:User:get, _format: json}
-    requirements:
-        _method: GET
-
-trout_demo_user_add:
-    pattern:  /new
-    defaults: { _controller: TroutDemoBundle:User:new, _format: json}
-    requirements:
-        _method: POST
-
-trout_demo_user_edit:
-    pattern:  /users/{id}
-    defaults: { _controller: TroutDemoBundle:User:edit, _format: json }
-    requirements:
-        _method: PUT
-
+# API doc generator
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
 
 #        Profile
 trout_demo_profile_all_json:
     pattern:  /profile/all
     defaults: { _controller: TroutDemoBundle:Profile:all, _format: json }
-    requirements: { _format: (xml|json), _method: GET }
+    requirements:
+        _method: GET
 
 trout_demo_profile_get:
     pattern:  /profile/get/{id}
@@ -62,7 +28,7 @@ trout_demo_profile_add:
         _method: POST
 
 trout_demo_profile_edit:
-    pattern:  /profiles/{id}
+    pattern:  /profile/edit/{id}
     defaults: { _controller: TroutDemoBundle:Profile:edit, _format: json }
     requirements:
         _method: PUT
@@ -83,7 +49,8 @@ trout_demo_profile_delete:
 trout_demo_job_offer_all_json:
     pattern:  /jobOffer/all
     defaults: { _controller: TroutDemoBundle:JobOffer:all, _format: json }
-    requirements: { _format: (xml|json), _method: GET }
+    requirements:
+        _method: GET
 
 trout_demo_job_offer_get:
     pattern:  /jobOffer/get/{id}
@@ -98,7 +65,7 @@ trout_demo_job_offer_add:
         _method: POST
 
 trout_demo_job_offer_edit:
-    pattern:  /jobOffers/{id}
+    pattern:  /jobOffer/edit/{id}
     defaults: { _controller: TroutDemoBundle:JobOffer:edit, _format: json }
     requirements:
         _method: PUT

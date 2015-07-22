@@ -5,6 +5,12 @@ namespace Trout\DemoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+ * Class BaseController
+ * Keep those functions used in all controllers in this class
+ *
+ * @package Trout\DemoBundle\Controller
+ */
 class BaseController extends Controller
 {
     /**
