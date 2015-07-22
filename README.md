@@ -95,3 +95,27 @@ curl -F "profilePhoto=@/<path>/<to>/<yourPhoto>/photo.png" http://trout.dev.com.
 ```
 
 TODO: Validate the image size and format.
+
+## 5. Publish a JobOffer
+
+```
+curl -v -H "Accept: application/json" -H "Content-type: application/json" http://trout.dev.com.au/jobOffer/publish/2 Accept:application/json
+```
+
+
+## 6. Offer a JobOffer to a profile
+
+```
+curl -v -H "Accept: application/json" -H "Content-type: application/json" http://trout.dev.com.au/jobOffer/offer/2/1 Accept:application/json
+```
+TODO: Only published job offers can be offered
+
+## 7. Close a JobOffer
+
+```
+curl -v -H "Accept: application/json" -H "Content-type: application/json" http://trout.dev.com.au/jobOffer/close/2 Accept:application/json
+```
+
+
+
+
