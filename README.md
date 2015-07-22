@@ -42,15 +42,20 @@ A few small things to be considered:
 -----------------------------------
 
 1. Make sure app/cache directory has read/write permission
-2. $ sh bash/init.sh regenerates the whole database to reuse consistent data via Behat including insert/update and delete
-3. DB configuration details can be changed at ~/Sites/trout/app/config/parameters.yml
-4. Behat scenarios can be found at ~/Sites/trout/features/trout.feature
-5. Entity validation done by Annotation in each entity.
-6. After an image uploaded, it gets encrypted and saved /app/files/<kernel_dev>/ and image details saved in tout_file table.
+2. If http://trout.dev.com.au/ used as the base url, then you don't need to change Behat and other configuration (TODO: this should be configurable)
+3. $ sh bash/init.sh regenerates the whole database to reuse consistent data via Behat including insert/update and delete
+4. DB configuration details can be changed at ~/Sites/trout/app/config/parameters.yml
+5. Behat scenarios can be found at ~/Sites/trout/features/trout.feature
+6. Entity validation done by Annotation in each entity.
+7. After an image uploaded, it gets encrypted and saved /app/files/<kernel_dev>/ and image details saved in tout_file table.
 
 
 End Points
 ----------
+## 0. You can see the API documentation at http://trout.dev.com.au/api/doc
+
+  **NOTE**: This is not the complete list, only generated for demonstration and proof of concept
+
 ## 1. Display a JobOffer/Profile by id
 
 ```
