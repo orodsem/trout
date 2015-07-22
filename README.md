@@ -20,6 +20,8 @@ This project contains the following technologies:
 
   * [**NelmioApiDocBundle**][5] - To generate documents for REST API
 
+  * [**JMSSerializerBundle**][6] - To serialise objects to XML,JSON or YML
+
   * Annotations enabled for everything. Including @ParamConverter
 
 All libraries and bundles included in the Symfony Standard Edition are released under the MIT or BSD license.
@@ -32,11 +34,9 @@ How to Start
 3. Run comopser install/update to get the latest bundles and dependencies
 4. $ sh bash/init.sh
 
- To create a schema (called 'trout') and insert some test data, follow by running all Behat test scenarios.
+ To create a schema, insert test data and then run all Behat test scenarios.
 
  **NOTE**: You'll be asked "Careful, database will be purged. Do you want to continue Y/N ?", press Y
-
-Enjoy!
 
 A few small things to be considered:
 -----------------------------------
@@ -46,7 +46,7 @@ A few small things to be considered:
 3. $ sh bash/init.sh regenerates the whole database to reuse consistent data via Behat including insert/update and delete
 4. DB configuration details can be changed at ~/Sites/trout/app/config/parameters.yml
 5. Behat scenarios can be found at ~/Sites/trout/features/trout.feature
-6. Entity validation done by Annotation in each entity.
+6. Form validation done by Annotation in each entity.
 7. After an image uploaded, it gets encrypted and saved /app/files/<kernel_dev>/ and image details saved in tout_file table.
 
 
@@ -139,6 +139,7 @@ curl -v -H "Accept: application/json" -H "Content-type: application/json" http:/
 [3]:  https://packagist.org/packages/doctrine/doctrine-fixtures-bundle
 [4]:  https://github.com/deminy/behat-rest-testing
 [5]:  https://github.com/nelmio/NelmioApiDocBundle/blob/master/Resources/doc/index.md
+[6]:  https://github.com/schmittjoh/JMSSerializerBundle
 
 
 
