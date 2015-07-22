@@ -55,6 +55,7 @@ End Points
 ## 0. API Documentation
 
   You can see the API documentation at http://trout.dev.com.au/api/doc
+
   **NOTE**: This is not the complete list, only generated for demonstration and proof of concept
 
 ## 1. Display a JobOffer/Profile by id
