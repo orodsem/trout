@@ -1,7 +1,7 @@
 Trout REST API Test
 ========================
 
-This is a test for Trout Co.
+This is a dummy project to create REST API with Symfony2 including Behat
 
 What's inside?
 --------------
